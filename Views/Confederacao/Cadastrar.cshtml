@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<form class="form" id="form" asp-controller="Confederacao" asp-action="Cadastrar" method="POST">
+    <label for="Nome">Nome: </label>
+    <input type="text" id="Nome" name="Nome">
+
+    <label for="Continente">Continente: </label>
+    <input type="text" id="Continente" name="Continente">
+
+    <label for="Vagas">Vagas: </label>
+    <input type="number" id="Vagas" name="Vagas">
+
+    <input type="submit" value="Cadastrar">
+</form>

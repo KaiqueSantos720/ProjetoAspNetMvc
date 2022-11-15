@@ -1,0 +1,42 @@
+@model IEnumerable<TwoFootball.Models.Confederacao>
+@{
+    ViewData["Title"] = "Confederações";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhuma confederação cadastrada</p>
+    <a class="btn btn-outline-dark" asp-controller="Confederacao" asp-action="Cadastrar">Cadastre uma nova confederação</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Continente</th>
+                <th>Vagas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var confederacao in Model)
+            {
+                <tr>
+                    <td>@confederacao.Id</td>
+                    <td>@confederacao.Nome</td>
+                    <td>@confederacao.Continente</td>
+                    <td>@confederacao.Vagas</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Confederacao" asp-action="Show" asp-route-id="@confederacao.Id">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Confederacao" asp-action="Update" asp-route-id="@confederacao.Id">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Confederacao" asp-action="Delete" asp-route-id="@confederacao.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Confederacao" asp-action="Cadastrar">Cadastre uma nova confederação</a>
+}

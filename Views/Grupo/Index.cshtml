@@ -1,0 +1,46 @@
+@model IEnumerable<TwoFootball.Models.Grupo>
+@{
+    ViewData["Title"] = "Grupos";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum grupo cadastrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Grupo" asp-action="Cadastrar">Cadastre um novo grupo</a>
+}
+else
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Pote 1</th>
+                <th>Pote 2</th>
+                <th>Pote 3</th>
+                <th>Pote 4</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var grupo in Model)
+            {
+                <tr>
+                    <td>@grupo.Id</td>
+                    <td>@grupo.Nome</td>
+                    <td>@grupo.Pote1</td>
+                    <td>@grupo.Pote2</td>
+                    <td>@grupo.Pote3</td>
+                    <td>@grupo.Pote4</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Grupo" asp-action="Show" asp-route-id="@grupo.Id">Ver</a>
+                        <a class="btn btn-outline-light" asp-controller="Grupo" asp-action="Update" asp-route-id="@grupo.Id">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Grupo" asp-action="Delete" asp-route-id="@grupo.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Grupo" asp-action="Cadastrar">Cadastre um novo grupo</a>
+}
