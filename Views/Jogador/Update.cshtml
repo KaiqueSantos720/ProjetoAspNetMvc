@@ -1,4 +1,5 @@
 @model TwoFootball.Models.Jogador
+
 @{
     ViewData["Title"] = "Atualizar Jogador";
 }
@@ -10,19 +11,33 @@
     @* Não pode alterar o ID *@
     
     <label for="Nome">Nome</label>
-    <input type="text" id="Nome" value="@Model.Nome" name="Nome">
+    <input type="text" id="Nome" value="@Model.Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
 
     <label for="Posicao">Posicao</label>
-    <input type="text" id="Posicao" value="@Model.Posicao" name="Posicao">
+    <select name="Posicao" id="Posicao" value="@Model.Posicao" asp-for="@Model.Posicao">
+        <option value="Goleiro">Goleiro</option>
+        <option value="Zagueiro">Zagueiro</option>
+        <option value="Lateral">Lateral</option>
+        <option value="Volante">Volante</option>
+        <option value="Ala">Ala</option>
+        <option value="Meia">Meia</option>
+        <option value="Ponta">Ponta</option>
+        <option value="Centroavante">Centroavante</option>
+    </select>
+    <span asp-validation-for="@Model.Posicao" class="text-danger"></span>
 
     <label for="Numero">Numero</label>
-    <input type="number" id="Numero" value="@Model.Numero" name="Numero">
+    <input type="number" id="Numero" value="@Model.Numero" name="Numero" asp-for="@Model.Numero">
+    <span asp-validation-for="@Model.Numero" class="text-danger"></span>
 
     <label for="CopasParticipadas">Copas Participadas</label>
-    <input type="number" id="Copas Participadas" value="@Model.CopasParticipadas" name="CopasParticipadas">
+    <input type="number" id="Copas Participadas" value="@Model.CopasParticipadas" name="CopasParticipadas" asp-for="@Model.CopasParticipadas">
+    <span asp-validation-for="@Model.CopasParticipadas" class="text-danger"></span>
 
     <label for="Nacionalidade">Nacionalidade</label>
-    <input type="text" id="Nacionalidade" value="@Model.Nacionalidade" name="Nacionalidade">
+    <input type="text" id="Nacionalidade" value="@Model.Nacionalidade" name="Nacionalidade" asp-for="@Model.Nacionalidade">
+    <span asp-validation-for="@Model.Nacionalidade" class="text-danger"></span>
 
     <input class="submit" type="submit" value="Atualizar">
 </form>

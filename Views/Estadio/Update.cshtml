@@ -1,23 +1,25 @@
 @model TwoFootball.Models.Estadio
 @{
-    ViewData["Title"] = "Atualizar Estadio";
+    ViewData["Title"] = "Atualizar Estádio";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Utilize o formulário para Atualizar o estadio</p>
+<p>Utilize o formulário para Atualizar o Estádio</p>
 
 <form class="form" asp-controller="Estadio" asp-action="Update" asp-route-id="@Model.Id" method="POST">
     @* Não pode alterar o ID *@
     
     <label for="Nome">Nome</label>
-    <input type="text" id="Nome" value="@Model.Nome" name="Nome">
+    <input type="text" id="Nome" value="@Model.Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
 
     <label for="Cidade">Cidade</label>
-    <input type="text" id="Cidade" value="@Model.Cidade" name="Cidade">
+    <input type="text" id="Cidade" value="@Model.Cidade" name="Cidade" asp-for="@Model.Cidade">
+    <span asp-validation-for="@Model.Cidade" class="text-danger"></span>
 
     <label for="Capacidade">Capacidade</label>
-    <input type="number" id="Capacidade" value="@Model.Capacidade" name="Capacidade">
-
+    <input type="number" id="Capacidade" value="@Model.Capacidade" name="Capacidade" asp-for="@Model.Capacidade">
+    <span asp-validation-for="@Model.Capacidade" class="text-danger"></span>
 
     <input class="submit" type="submit" value="Atualizar">
 </form>

@@ -37,6 +37,11 @@ public class EstadioController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Estadio estadio)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(estadio);
+        }
+
         _context.Estadio.Add(estadio);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -58,6 +63,11 @@ public class EstadioController : Controller
     [HttpPost]
     public IActionResult Update(Estadio estadio, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(estadio);
+        }
+
         Estadio updateEstadio = _context.Estadio.Find(estadio.Id);
         
         updateEstadio.Nome = estadio.Nome;

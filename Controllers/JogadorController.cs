@@ -37,6 +37,11 @@ public class JogadorController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Jogador jogador)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(jogador);
+        }
+
         _context.Jogador.Add(jogador);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -58,6 +63,11 @@ public class JogadorController : Controller
     [HttpPost]
     public IActionResult Update(Jogador jogador, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(jogador);
+        }
+
         Jogador updateJogador = _context.Jogador.Find(jogador.Id);
         
         updateJogador.Nome = jogador.Nome;
