@@ -1,0 +1,28 @@
+@model TwoFootball.Models.Time
+@{
+    ViewData["Title"] = "Atualizar Time";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Utilize o formulário para Atualizar o time</p>
+
+<form class="form" asp-controller="Time" asp-action="Update" asp-route-id="@Model.Id" method="POST">
+    @* Não pode alterar o ID *@
+    
+    <label for="Pais">Pais: </label>
+    <input type="text" id="Pais" name="Pais">
+
+    <label for="Patrocinador">Patrocinador: </label>
+    <input type="text" id="Patrocinador" name="Patrocinador">
+
+    <label for="Titulos">Títulos: </label>
+    <input type="text" id="Titulos" name="Titulos">
+
+    <label for="JogadorDeDestaque">Jogador de Destaque: </label>
+    <input type="text" id="JogadorDeDestaque" name="JogadorDeDestaque">
+
+    <label for="Confederacao">Confederação: </label>
+    <input type="text" id="Confederacao" name="Confederacao">
+
+    <input type="submit" value="Atualizar">
+</form>

@@ -1,0 +1,12 @@
+@model TwoFootball.Models.Time
+@{
+    ViewData["Title"] = $"Times: {Model.Pais}";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p><b>Id: </b>@Model.Id</p>
+<p><b>País: </b>@Model.Pais</p>
+<p><b>Patrocinador: </b>@Model.Patrocinador</p>
+<p><b>Títulos: </b>@Model.Titulos</p>
+<p><b>Jogador de Destaque: </b>@Model.JogadorDeDestaque</p>
+<p><b>Confederação: </b>@Model.Confederacao</p>
