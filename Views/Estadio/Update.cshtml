@@ -1,0 +1,23 @@
+@model TwoFootball.Models.Estadio
+@{
+    ViewData["Title"] = "Atualizar Estadio";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Utilize o formulário para Atualizar o estadio</p>
+
+<form class="form" asp-controller="Estadio" asp-action="Update" asp-route-id="@Model.Id" method="POST">
+    @* Não pode alterar o ID *@
+    
+    <label for="Nome">Nome</label>
+    <input type="text" id="Nome" value="@Model.Nome" name="Nome">
+
+    <label for="Cidade">Cidade</label>
+    <input type="text" id="Cidade" value="@Model.Cidade" name="Cidade">
+
+    <label for="Capacidade">Capacidade</label>
+    <input type="number" id="Capacidade" value="@Model.Capacidade" name="Capacidade">
+
+
+    <input class="submit" type="submit" value="Atualizar">
+</form>

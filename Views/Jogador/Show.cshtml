@@ -1,0 +1,12 @@
+@model TwoFootball.Models.Jogador
+@{
+    ViewData["Title"] = $"Jogador {Model.Nome}";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p><b>Id: </b>@Model.Id</p>
+<p><b>Nome: </b>@Model.Nome</p>
+<p><b>Posicao: </b>@Model.Posicao</p>
+<p><b>Numero: </b>@Model.Numero</p>
+<p><b>Copas Participadas: </b>@Model.CopasParticipadas</p>
+<p><b>Nacionalidade: </b>@Model.Nacionalidade</p>

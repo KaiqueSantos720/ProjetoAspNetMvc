@@ -8,6 +8,8 @@ public class TwoFootballContext : DbContext
     public DbSet<Time>? Time { get; set; }
     public DbSet<Confederacao>? Confederacao { get; set; }
     public DbSet<Grupo>? Grupo { get; set; }
+    public DbSet<Jogador>? Jogador { get; set; }
+    public DbSet<Estadio>? Estadio { get; set; }
     
     public TwoFootballContext(DbContextOptions<TwoFootballContext> options) : base(options)
     {
