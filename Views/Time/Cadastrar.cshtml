@@ -1,22 +1,35 @@
+@model TwoFootball.Models.Time
+
 @{
     ViewData["Title"] = "Cadastrar";
 }
 
 <form class="form" id="form" asp-controller="Time" asp-action="Cadastrar" method="POST">
     <label for="Pais">País: </label>
-    <input type="text" id="Pais" name="Pais">
+    <input type="text" id="Pais" name="Pais" asp-for="@Model.Pais">
+    <span asp-validation-for="@Model.Pais" class="text-danger"></span>
 
     <label for="Patrocinador">Patrocinador: </label>
-    <input type="text" id="Patrocinador" name="Patrocinador">
+    <select name="Patrocinador" id="Patrocinador" asp-for="@Model.Patrocinador">
+        <option value="Adidas">Adidas</option>
+        <option value="Nike">Nike</option>
+        <option value="Puma">Puma</option>
+        <option value="Hummel">Hummel</option>
+        <option value="Marathon">Marathon</option>
+        <option value="Majid">Majid</option>
+        <option value="Kappa">Kappa</option>
+        <option value="New Balance">New Balance</option>
+        <option value="One All Sports">One All Sports</option>
+    </select>
+    <span asp-validation-for="@Model.Patrocinador" class="text-danger"></span>
 
     <label for="Titulos">Títulos: </label>
-    <input type="text" id="Titulos" name="Titulos">
+    <input type="text" id="Titulos" name="Titulos" asp-for="@Model.Titulos">
+    <span asp-validation-for="@Model.Titulos" class="text-danger"></span>
 
     <label for="JogadorDeDestaque">Jogador De Destaque: </label>
-    <input type="text id="JogadorDeDestaque" name="JogadorDeDestaque">
-
-    <label for="Confederacao">Confederação: </label>
-    <input type="text" id="Confederacao" name="Confederacao">
+    <input type="text" id="JogadorDeDestaque" name="JogadorDeDestaque" asp-for="@Model.JogadorDeDestaque">
+    <span asp-validation-for="@Model.JogadorDeDestaque" class="text-danger"></span>
 
     <input type="submit" value="Cadastrar">
 </form>

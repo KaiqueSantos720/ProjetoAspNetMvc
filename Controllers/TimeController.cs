@@ -38,6 +38,11 @@ public class TimeController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Time time)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(time);
+        }
+
         _context.Time.Add(time);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -59,13 +64,17 @@ public class TimeController : Controller
     [HttpPost]
     public IActionResult Update(Time time, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(time);
+        }
+
         Time updateTime = _context.Time.Find(time.Id);
         
         updateTime.Pais = time.Pais;
         updateTime.Patrocinador = time.Patrocinador;
         updateTime.Titulos = time.Titulos;
         updateTime.JogadorDeDestaque = time.JogadorDeDestaque;
-        updateTime.Confederacao = time.Confederacao;
 
         _context.Time.Update(updateTime);
         _context.SaveChanges();

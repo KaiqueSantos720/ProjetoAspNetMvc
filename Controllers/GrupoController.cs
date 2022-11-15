@@ -37,6 +37,11 @@ public class GrupoController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Grupo grupo)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(grupo);
+        }
+
         _context.Grupo.Add(grupo);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -45,6 +50,7 @@ public class GrupoController : Controller
     [HttpGet]
     public IActionResult Update(int id)
     {
+        
         Grupo grupo = _context.Grupo.Find(id);
 
         if(grupo == null)
@@ -58,6 +64,11 @@ public class GrupoController : Controller
     [HttpPost]
     public IActionResult Update(Grupo grupo, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(grupo);
+        }
+        
         Grupo updateGrupo = _context.Grupo.Find(grupo.Id);
         
         updateGrupo.Nome = grupo.Nome;

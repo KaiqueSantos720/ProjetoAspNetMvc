@@ -10,16 +10,16 @@
     @* Não pode alterar o ID *@
     
     <label for="TimeDaCasa">Time da Casa: </label>
-    <input type="text" id="TimeDaCasa" name="TimeDaCasa">
+    <input type="text" id="TimeDaCasa" name="TimeDaCasa" value="@Model.TimeDaCasa" asp-for="@Model.TimeDaCasa">
+    <span asp-validation-for="@Model.TimeDaCasa" class="text-danger"></span>
 
     <label for="TimeVisitante">Time Visitante: </label>
-    <input type="text" id="TimeVisitante" name="TimeVisitante">
-
-    <label for="Estadio">Estádio: </label>
-    <input type="text" id="Estadio" name="Estadio">
+    <input type="text" id="TimeVisitante" name="TimeVisitante" value="@Model.TimeVisitante" asp-for="@Model.TimeVisitante">
+    <span asp-validation-for="@Model.TimeVisitante" class="text-danger"></span>
 
     <label for="Data">Data: </label>
-    <input type="datetime-local" id="Data" name="Data">
+    <input type="datetime-local" id="Data" name="Data" value="@Model.Data" asp-for="@Model.Data">
+    <span asp-validation-for="@Model.Data" class="text-danger"></span>
 
     <input type="submit" value="Atualizar">
 </form>

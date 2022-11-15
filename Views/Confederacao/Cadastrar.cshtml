@@ -1,16 +1,21 @@
-﻿@{
+﻿@model TwoFootball.Models.Confederacao
+
+@{
     ViewData["Title"] = "Cadastrar";
 }
 
 <form class="form" id="form" asp-controller="Confederacao" asp-action="Cadastrar" method="POST">
     <label for="Nome">Nome: </label>
-    <input type="text" id="Nome" name="Nome">
+    <input type="text" id="Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
 
     <label for="Continente">Continente: </label>
-    <input type="text" id="Continente" name="Continente">
+    <input type="text" id="Continente" name="Continente" asp-for="@Model.Continente">
+    <span asp-validation-for="@Model.Continente" class="text-danger"></span>
 
     <label for="Vagas">Vagas: </label>
-    <input type="number" id="Vagas" name="Vagas">
+    <input type="number" id="Vagas" name="Vagas" asp-for="@Model.Vagas">
+    <span asp-validation-for="@Model.Vagas" class="text-danger"></span>
 
     <input type="submit" value="Cadastrar">
 </form>

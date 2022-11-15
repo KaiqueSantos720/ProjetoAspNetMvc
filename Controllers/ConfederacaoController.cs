@@ -37,6 +37,11 @@ public class ConfederacaoController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Confederacao confederacao)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(confederacao);
+        }
+
         _context.Confederacao.Add(confederacao);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -58,6 +63,11 @@ public class ConfederacaoController : Controller
     [HttpPost]
     public IActionResult Update(Confederacao confederacao, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(confederacao);
+        }
+        
         Confederacao updateConfederacao = _context.Confederacao.Find(confederacao.Id);
         
         updateConfederacao.Nome = confederacao.Nome;

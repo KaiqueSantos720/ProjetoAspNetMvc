@@ -38,6 +38,11 @@ public class PartidaController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Partida partida)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(partida);
+        }
+
         _context.Partida.Add(partida);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -59,11 +64,15 @@ public class PartidaController : Controller
     [HttpPost]
     public IActionResult Update(Partida partida, int id)
     {
+        if(!ModelState.IsValid) 
+        {
+            return View(partida);
+        }
+
         Partida updatePartida = _context.Partida.Find(partida.Id);
         
         updatePartida.TimeDaCasa = partida.TimeDaCasa;
         updatePartida.TimeVisitante = partida.TimeVisitante;
-        updatePartida.Estadio = partida.Estadio;
         updatePartida.Data = partida.Data;
 
         _context.Partida.Update(updatePartida);

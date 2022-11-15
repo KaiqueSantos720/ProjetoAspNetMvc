@@ -19,7 +19,6 @@ else
                 <th>Patrocinador</th>
                 <th>Títulos</th>
                 <th>Jogador De Destaque</th>
-                <th>Confederação</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -32,7 +31,6 @@ else
                     <td>@time.Patrocinador</td>
                     <td>@time.Titulos</td>
                     <td>@time.JogadorDeDestaque</td>
-                    <td>@time.Confederacao</td>
                     <td>
                         <a class="btn btn-outline-info" asp-controller="Time" asp-action="Show" asp-route-id="@time.Id">Ver</a>
                         <a class="btn btn-outline-light" asp-controller="Time" asp-action="Update" asp-route-id="@time.Id">Update</a>

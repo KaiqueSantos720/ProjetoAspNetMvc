@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<TwoFootballContext>(options => options.UseMySQL("server=localhost;database=twofootball;user=root;password=atividadeslp3;"));
+builder.Services.AddDbContext<TwoFootballContext>(options => options.UseMySQL("server=localhost;database=twofootball;user=root;password=testes-bancos-de-dados;"));
 
 var app = builder.Build();
 
